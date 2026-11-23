@@ -5,7 +5,6 @@ import 'package:arcade_motoru/hiper.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const hiperId = 'oyun-hiper-gundelik-mekanik-paketi';
 
@@ -88,7 +87,7 @@ final hiperConfig = GameConfig(
   rules: hiperRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => hiperRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => hiperRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintHyper(c, s, p, t);
